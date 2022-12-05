@@ -1,0 +1,1 @@
+An application with the ability to scroll using the mouse, keyboard and thumb on mobile screens.
