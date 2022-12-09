@@ -16,16 +16,16 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, "css-loader"],
+                use: ["style-loader", "css-loader"],
             },
             {
                 test: /\.(sass|scss)$/,
-                use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+                use: ["style-loader", "css-loader", "sass-loader"],
             },
         ],
     },
     output: {
-        filename: "[name]-[contenthash:6].js",
+        filename: "js/[name].js",
         path: path.resolve(__dirname, "../", "build"),
     },
     devServer: {
@@ -40,9 +40,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: "new application",
             template: "src/templates/template.html",
-        }),
-        new MiniCssExtractPlugin({
-            filename: "css/[name]-[contenthash:6].css",
         }),
     ],
 };

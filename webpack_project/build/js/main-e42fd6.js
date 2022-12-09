@@ -1,0 +1,1 @@
+(()=>{"use strict";const e="Welcome to the development server!!!";var t;t=e,console.log(t),(e=>{document.querySelector("div").textContent=e})(e)})();
