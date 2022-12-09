@@ -16,3 +16,7 @@ e2.addBgc("blue");
 const e3 = new Creator();
 e3.addBgc();
 e3.showColor();
+
+let promise = new Promise(function (resolve, reject) {
+    resolve("ok");
+});

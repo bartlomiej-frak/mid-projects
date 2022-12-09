@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     mode: "production",
@@ -51,6 +52,10 @@ module.exports = {
                 test: /\.js$/,
                 loader: "babel-loader",
                 exclude: /node_modules/,
+                options: {
+                    presets: [["@babel/preset-env", { useBuiltIns: "usage", corejs: "2.0.0" }]],
+                    plugins: ["@babel/plugin-proposal-class-properties"],
+                },
             },
         ],
     },
@@ -62,6 +67,14 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename: "[name]-[contenthash:6].css",
+        }),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: "public/images",
+                    to: "images",
+                },
+            ],
         }),
     ],
 };
