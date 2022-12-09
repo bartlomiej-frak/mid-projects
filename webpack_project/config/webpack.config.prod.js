@@ -8,6 +8,10 @@ module.exports = {
     entry: {
         main: "./src/index.js",
     },
+    output: {
+        filename: "js/[name]-[contenthash:6].js",
+        path: path.resolve(__dirname, "../", "build"),
+    },
     module: {
         rules: [
             {
@@ -22,11 +26,15 @@ module.exports = {
                 test: /\.(sass|scss)$/,
                 use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
             },
+            {
+                test: /\.(jpg|png|svg|gif|jpeg)$/,
+                loader: "file-loader",
+                options: {
+                    name: "[name]-[contenthash:6].[ext]",
+                    outputPath: "images",
+                },
+            },
         ],
-    },
-    output: {
-        filename: "js/[name]-[contenthash:6].js",
-        path: path.resolve(__dirname, "../", "build"),
     },
     plugins: [
         new CleanWebpackPlugin(),
@@ -35,7 +43,7 @@ module.exports = {
             template: "src/templates/template.html",
         }),
         new MiniCssExtractPlugin({
-            filename: "css/[name]-[contenthash:6].css",
+            filename: "[name]-[contenthash:6].css",
         }),
     ],
 };

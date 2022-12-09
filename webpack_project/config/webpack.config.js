@@ -1,12 +1,22 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     mode: "development",
     entry: {
         main: "./src/index.js",
+    },
+    output: {
+        filename: "js/[name].js",
+        path: path.resolve(__dirname, "../", "build"),
+    },
+    devServer: {
+        open: true,
+        static: {
+            directory: path.join(__dirname, "../", "public"),
+        },
+        port: 5001,
     },
     module: {
         rules: [
@@ -22,18 +32,11 @@ module.exports = {
                 test: /\.(sass|scss)$/,
                 use: ["style-loader", "css-loader", "sass-loader"],
             },
+            {
+                test: /\.(jpg|png|svg|gif|jpeg)$/,
+                use: "file-loader",
+            },
         ],
-    },
-    output: {
-        filename: "js/[name].js",
-        path: path.resolve(__dirname, "../", "build"),
-    },
-    devServer: {
-        open: true,
-        static: {
-            directory: path.join(__dirname, "../", "public"),
-        },
-        port: 5001,
     },
     plugins: [
         new CleanWebpackPlugin(),
