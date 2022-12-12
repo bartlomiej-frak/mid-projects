@@ -5,12 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const img1El = document.querySelector(".slider__image-container--first img");
     const img2El = document.querySelector(".slider__image-container--second img");
     let dragging = false;
-    const imagesContainerLeftOffset = imagesContainerEl.offsetLeft;
     const img1ContainerEl = document.querySelector(".slider__image-container--first");
     const img2ContainerEl = document.querySelector(".slider__image-container--second");
     const handleEl = document.querySelector(".slider__handle");
     const dividerEl = document.querySelector(".slider__divider");
     let imagesContainerWidth;
+    let imagesContainerLeftOffset;
 
     function getOffset(clientX) {
         const offset = clientX - imagesContainerLeftOffset;
@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function adjustImagesSize() {
         imagesContainerWidth = imagesContainerEl.offsetWidth;
+        imagesContainerLeftOffset = imagesContainerEl.offsetLeft;
         img1El.style.width = imagesContainerWidth + "px";
         img2El.style.width = imagesContainerWidth + "px";
     }
