@@ -170,3 +170,15 @@ img {
     margin-right: 10px;
     width: 40px; }
 
+table {
+  width: 100%; }
+  table thead {
+    border-bottom: 2px solid #e99009;
+    color: #fff;
+    background-color: #f7a72e; }
+  table tr {
+    border-bottom: 1px solid #ddd; }
+  table th,
+  table td {
+    padding: 5px; }
+
