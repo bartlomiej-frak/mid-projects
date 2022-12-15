@@ -158,6 +158,12 @@ p {
 img {
   max-width: 100%; }
 
+.app--images {
+  margin: 20px 0; }
+
+.app--description {
+  margin-bottom: 20px; }
+
 .header {
   background-color: #f7a72e;
   color: #fff;
