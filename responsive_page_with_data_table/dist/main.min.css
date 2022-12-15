@@ -182,3 +182,8 @@ table {
   table td {
     padding: 5px; }
 
+ul li {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f7a72e; }
+
