@@ -155,6 +155,9 @@ p {
   margin: 0 auto;
   padding: 0 20px; }
 
+img {
+  max-width: 100%; }
+
 .header {
   background-color: #f7a72e;
   color: #fff;
