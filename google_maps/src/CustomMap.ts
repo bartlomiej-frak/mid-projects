@@ -27,6 +27,7 @@ export class CustomMap {
                 lat: mapable.location.lat,
                 lng: mapable.location.lng,
             },
+            icon: { url: `http://maps.google.com/mapfiles/ms/icons/${mapable.color}-dot.png` },
         });
 
         marker.addListener('click', () => {

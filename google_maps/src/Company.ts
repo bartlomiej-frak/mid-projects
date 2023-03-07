@@ -8,7 +8,7 @@ export class Company implements Mapable {
         lat: number;
         lng: number;
     };
-    color: string = 'red';
+    color: string = 'blue';
 
     constructor() {
         this.companyName = faker.company.name();
