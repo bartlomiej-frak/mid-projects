@@ -42,6 +42,15 @@ function touchStart(index) {
 function touchEnd() {
     isDragging = false;
     cancelAnimationFrame(animationID);
+
+    const movedBy = currentTranslate - prevTranslate;
+
+    if (movedBy < -100 && currentIndex < slides.length - 1) currentIndex += 1;
+
+    if (movedBy > 100 && currentIndex > 0) currentIndex -= 1;
+
+    setSliderPositionByIndex();
+
     slider.classList.remove('grabbing');
 }
 
@@ -63,4 +72,10 @@ function animation() {
 
 function setSliderPosition() {
     slider.style.transform = `translateX(${currentTranslate}px)`;
+}
+
+function setSliderPositionByIndex() {
+    currentTranslate = currentIndex * -window.innerWidth;
+    prevTranslate = currentTranslate;
+    setSliderPosition();
 }
